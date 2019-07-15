@@ -1,15 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import './head.scss';
+
+import LanguageSelector from './LanguageSelector.jsx';
+import Logo from './Logo.jsx';
+
 
 export default class Head extends Component {
   render() {
     return (
-      <div class="wrapper">
-        <div>
-          <span></span>
-          <h1>Head</h1>
-        </div>
-        {/* <app-language-selector></app-language-selector> */}
-      </div>
+      <header className="head">
+        <Logo />
+        <LanguageSelector />
+      </header>
     )
   }
 }

@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 
 import Head from './header/Head.jsx';
+import Main from './main/Main.jsx';
 
 export class App extends Component {
-  // static propTypes = {}
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Head />
+        <Main />
         My App!
-      </div>
+      </React.Fragment>
     )
   }
 }
 
 export default App;
-
-// ReactDOM.render(<App />, document.getElementById('app'))
