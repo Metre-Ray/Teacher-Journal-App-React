@@ -10,7 +10,6 @@ export class App extends Component {
       <React.Fragment>
         <Head />
         <Main />
-        My App!
       </React.Fragment>
     )
   }

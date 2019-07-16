@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types';
+
 import './languageSelector.scss';
 
 export default class LanguageSelector extends Component {
@@ -62,16 +63,3 @@ export default class LanguageSelector extends Component {
   }
 
 }
-
-
-LanguageSelector.propTypes = {
-  flag: PropTypes.bool,
-  label: PropTypes.string,
-  languages: PropTypes.array
-};
-
-// task: PropTypes.shape({
-//   link: PropTypes.string,
-//   taskName: PropTypes.string,
-//   status: PropTypes.string
-// }),
