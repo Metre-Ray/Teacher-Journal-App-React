@@ -6,7 +6,7 @@ nav.main-navigation  {
   margin: 30px;
   margin-bottom: 50px;
 
-  button:focus, .active-link {
+  button:focus, .active-link button {
     background: rgb(0, 37, 116);
   }
 }

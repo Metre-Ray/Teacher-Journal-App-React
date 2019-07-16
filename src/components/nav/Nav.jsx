@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import './nav.scss';
 
@@ -8,26 +8,26 @@ export default class Nav extends Component {
   render() {
     return (
       <nav className="main-navigation">
-        <Link to="/students">
+        <NavLink activeClassName="active-link" to="/students" tabIndex="-1">
           <button type="button" className="btn btn-primary" >
             Students
           </button>
-        </Link>
-        <Link to="/subjects">
+        </NavLink>
+        <NavLink activeClassName="active-link" to="/subjects" tabIndex="-1">
           <button type="button" className="btn btn-primary" >
             Subjects
           </button>
-        </Link>
-        <Link to="/statistics">
+        </NavLink>
+        <NavLink activeClassName="active-link" to="/statistics" tabIndex="-1">
           <button type="button" className="btn btn-primary" >
             Statistics
           </button>
-        </Link>
-        <Link to="/students">
+        </NavLink>
+        <NavLink activeClassName="active-link" to="/export" tabIndex="-1">
           <button type="button" className="btn btn-primary" >
             Export
           </button>
-        </Link>
+        </NavLink>
       </nav>
     )
   }
