@@ -8,7 +8,8 @@ module.exports = {
     filename: "bundle.js"
   },
   devServer: {
-    open: 'chrome'
+    open: 'chrome',
+    historyApiFallback: true
   },
   module: {
     rules: [
