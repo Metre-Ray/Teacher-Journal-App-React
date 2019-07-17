@@ -7,7 +7,7 @@
       color: white;
     }
 
-    &.ng-invalid {
+    &:invalid {
       border: 1px solid rgb(184, 101, 101);
     }
   }
@@ -18,5 +18,10 @@
 
   .btn-container {
     text-align: center;
+  }
+
+  .control-error {
+    display: block;
+    color: #d25b5b;
   }
 }
