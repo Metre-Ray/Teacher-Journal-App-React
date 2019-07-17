@@ -5,9 +5,14 @@ import './StudentTable.scss';
 
 export default class StudentTable extends Component {
 
+  changeClass(event) {
+    const className = 'selected';
+    event.currentTarget.classList.toggle(className);
+  }
+
   generateRow(student, index, onRowRemove) {
     return (
-      <tr key={index}>
+      <tr key={student.id} onClick={(event) => this.changeClass(event)}>
         <td>{index + 1}</td>
         <td>{student.name}</td>
         <td>{student.lastName}</td>
@@ -17,7 +22,7 @@ export default class StudentTable extends Component {
         <td>
           <div className="block2">{student.description}</div>
         </td>
-        <td className="remove" onClick={() => onRowRemove(i)}>
+        <td className="remove" onClick={() => onRowRemove(index)}>
           <span className="fas fa-times"></span>
         </td>
       </tr>
