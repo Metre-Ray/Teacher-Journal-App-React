@@ -3,47 +3,70 @@ import React, { Component } from 'react';
 import './StatisticsPage.scss';
 
 export default class StatisticsPage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      listName: 'students'
+    }
+    this.changeListName = this.changeListName.bind(this);
+  }
+
+  changeListName(name) {
+    this.setState({listName: name});
+  }
+
+  generateList() {
+    const { listName } = this.state;
+    const { students, subjects } = this.props;
+
+    if (listName === 'students') {
+      return (
+        <ol>
+          {
+            students.map((student, i) =>
+              <li tabIndex="0" key={i}>
+                {student.name + ' ' + student.lastName}
+              </li>
+            )
+          }
+        </ol>
+      );
+    } else if (listName === 'subjects') {
+      return (
+        <ol>
+          {
+            subjects.map((subject, i) =>
+              <li tabIndex="0" key={i}>
+                {subject.name}
+              </li>
+            )
+          }
+        </ol>
+      );
+    }
+  }
+
   render() {
-    // const { students, subjects } = this.props;
-    const students = [];
-    const subjects = [];
-
     return (
-      <div class="statistics-page-container">
+      <div className="statistics-page-container">
 
-        <div class="panel-container">
-          <div class="panel-container__buttons">
-            <button>
+        <div className="panel-container">
+          <div className="panel-container__buttons">
+            <button onClick={() => this.changeListName('students')}>
               Students
             </button>
-            <button>
+            <button onClick={() => this.changeListName('subjects')}>
               Subjects
             </button>
           </div>
-          <div class="panel-container__list">
-            <ol>
-              {
-                students.map((student) => {
-                  <li tabindex="0">
-                    {student.name + ' ' + student.lastName}
-                  </li>
-                })
-              }
-            </ol>
-            <ol>
-              {
-                subjects.map((subject) => {
-                  <li tabindex="0">
-                    {subject.name}
-                  </li>
-                })
-              }
-            </ol>
+          <div className="panel-container__list">
+            { this.generateList() }
           </div>
         </div>
 
-        <div class="statistics-container">
-          <div class="statistics-container__data">
+        <div className="statistics-container">
+          <div className="statistics-container__data">
             <div>
               <span>Student</span>
             </div>
