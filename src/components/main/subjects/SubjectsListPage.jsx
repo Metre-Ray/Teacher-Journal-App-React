@@ -2,19 +2,9 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 import './SubjectsListPage.scss';
-import * as data from '../../../assets/data.json';
-
-import { convertSubjectDataToObjects } from './../../../helpers/converters.ts';
 import RoundButton from './../../shared/RoundButton.jsx';
 
 export default class SubjectsListPage extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      subjects: convertSubjectDataToObjects(data.subjects)
-    }
-  }
 
   generateButtons(subjects) {
     return subjects.map((subject) =>
@@ -25,7 +15,7 @@ export default class SubjectsListPage extends Component {
   }
 
   render() {
-    const { subjects } = this.state;
+    const { subjects } = this.props;
 
     return (
       <div className="subject-list-page">

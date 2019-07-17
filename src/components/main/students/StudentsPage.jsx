@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import StudentTable from './StudentTable.jsx';
-
-import * as data from '../../../assets/data.json';
-
-import {convertStudentDataToObjects, convertSubjectDataToObjects} from '../../../helpers/converters.ts';
+import { Link } from "react-router-dom";
 
 import './StudentsPage.scss';
 
 import RoundButton from '../../shared/RoundButton.jsx';
-import { Link } from "react-router-dom";
+import StudentTable from './StudentTable.jsx';
 
 
 export default class StudentsPage extends Component {
@@ -16,8 +12,8 @@ export default class StudentsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      students: convertStudentDataToObjects(data.students),
-      subjects: convertSubjectDataToObjects(data.subjects)
+      students: props.students,
+      subjects: props.subjects
     }
     this.removeStudent = this.removeStudent.bind(this);
   }
