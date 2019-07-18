@@ -8,9 +8,11 @@ export default class SubjectsListPage extends Component {
 
   generateButtons(subjects) {
     return subjects.map((subject) =>
-      <button  className="mcontainer__subject" key={subject.id}>
-        <span>{ subject.name }</span>
-      </button>
+      <Link to={`/subjects/${subject.name}`} tabIndex="-1" key={subject.id}>
+        <button  className="mcontainer__subject" key={subject.id}>
+          <span>{ subject.name }</span>
+        </button>
+      </Link>
     )
   }
 

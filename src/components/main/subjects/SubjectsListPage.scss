@@ -14,8 +14,14 @@
     width: 90%;
     margin: 0 auto;
 
+    a {
+      display: grid;
+      text-decoration: none;
+    }
+
     &__subject {
       display: grid;
+      justify-self: stretch;
       justify-content: center;
       align-content: center;
       height: 150px;
