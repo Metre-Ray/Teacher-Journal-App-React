@@ -3,7 +3,7 @@ import { IMark } from './mark';
 export interface IStudentData {
   Id: string;
   Name: string;
-  'Last name': string;
+  LastName: string;
   Address: string;
   Description: string;
   Marks: IMark;

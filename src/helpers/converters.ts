@@ -7,7 +7,7 @@ export function convertStudentDataToObjects(students: IStudentData[]): Student[]
     const newStudent: IStudent = {
       id: student.Id,
       name: student.Name,
-      lastName: student['Last name'],
+      lastName: student.LastName,
       address: student.Address,
       description: student.Description,
       marks:  student.Marks
