@@ -4,36 +4,17 @@ import Head from './header/Head.jsx';
 import Main from './main/Main.jsx';
 
 import ApolloClient from "apollo-boost";
-import gql from "graphql-tag";
 import { graphql, ApolloProvider } from 'react-apollo';
+import { dataQuery } from '../queries/query.jsx';
 
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql'
 });
 
-const dataQuery = gql`
-  query dataQuery {
-    students {
-      Id
-      Name
-      LastName
-      Address
-      Description
-      Marks
-    }
-    subjects {
-      Id
-      Name
-      Teacher
-      Room
-      Description
-      Dates
-    }
-  }
-`;
-const GMain = graphql(dataQuery)(Main);  // декорируем компонент, используя HOC, который берёт запрос и передаёт данные в наш компонент
 
+const GMain = graphql(dataQuery)(Main);  // декорируем компонент, используя HOC, который берёт запрос и передаёт данные в наш компонент
+// options: { pollInterval: 5000 },
 
 // When wrapped with the graphql HOC, our ChannelsList component will receive a prop called data,
 // which will contain channels when it’s available, or error when there is an error.
@@ -56,3 +37,9 @@ export class App extends Component {
 }
 
 export default App;
+
+
+// recharts.org
+// charts.js
+// http://jerairrest.github.io/react-chartjs-2/
+// victory

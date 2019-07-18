@@ -1,14 +1,18 @@
-const addStudentMutation = gql`
+import gql from "graphql-tag";
+
+export const addStudentMutation = gql`
   mutation addStudent($name: String!, $surname: String!, $address: String, $description: String) {
-    addStudent(name: $name, surname: $surname) {
+    addStudent(name: $name, surname: $surname, address: $address,  description: $description) {
       Name
       LastName
+      Address
+      Description
       Id
     }
   }
 `;
 
-const dataQuery = gql`
+export const dataQuery = gql`
   query dataQuery {
     students {
       Id
