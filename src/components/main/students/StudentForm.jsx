@@ -1,13 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Form from '../../shared/Form.jsx';
 
 import './StudentForm.scss';
 
 export default class StudentForm extends Component {
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
       <div className="student-form-container">
         <Form
+          handleSubmit={(e) => handleSubmit(e)}
           buttonName="Add"
           labels={[
             {

@@ -9,10 +9,10 @@ import StudentsPage from './students/StudentsPage.jsx';
 import StatisticsPage from './statistics/StatisticsPage.jsx';
 import ExportPage from './export/ExportPage.jsx';
 import Nav from '../nav/Nav.jsx';
-import StudentForm from './students/StudentForm.jsx';
 import SubjectForm from './subjects/SubjectForm.jsx';
 import SubjectMarksPage from './subjects/SubjectMarksPage.jsx';
 import NotFound from './not-found/NotFound.jsx';
+import StudentFormContainer from './students/StudentFormContainer.jsx';
 
 export default class Main extends Component {
 
@@ -39,7 +39,7 @@ export default class Main extends Component {
             <Route path='/students' exact render={ (props) =>
               <StudentsPage students={students} subjects={subjects} /> }
             />
-            <Route path='/students/form' exact component={StudentForm} />
+            <Route path='/students/form' exact component={StudentFormContainer} />
             <Route path='/subjects' exact render={ (props) =>
               <SubjectsListPage subjects={subjects} /> }
             />

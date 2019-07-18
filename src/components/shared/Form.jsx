@@ -20,10 +20,6 @@ export default class Form extends Component {
     });
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-  }
-
   putInputErrorsInState(input) {                    // ! input mast have id
     const validityState = input.validity;
     const inputErrors = this.getErrors(validityState);
@@ -79,6 +75,7 @@ export default class Form extends Component {
           </label>
           <input
             id={label.name}
+            name={label.name}
             placeholder={label.placeholder}
             required={label.required}
             pattern={label.required ? '^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я \'-]*$' : '.*'}
@@ -99,6 +96,7 @@ export default class Form extends Component {
           </label>
           <textarea
             id={label.name}
+            name={label.name}
             placeholder={label.placeholder}
             required={label.required}
             cols="30"
@@ -127,7 +125,7 @@ export default class Form extends Component {
     return (
       <form
         action=""
-        onSubmit={ (event) => { this.onSubmit(event); handleSubmit(); } }
+        onSubmit={ (event) => handleSubmit(event) }
         className="my-form">
 
         { this.generateFields(labels) }

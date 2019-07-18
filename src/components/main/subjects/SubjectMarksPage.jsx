@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import SubjectTable from './SubjectTable.jsx';
 
 import './SubjectMarksPage.scss';
+import NewDateModal from './NewDateModal.jsx';
 
 export default class SubjectMarksPage extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+  }
+
+  showModal() {
+    this.show = true;
+    this.forceUpdate();
   }
 
   render() {
@@ -42,6 +48,7 @@ export default class SubjectMarksPage extends Component {
           </form>
         </div>
 
+        {/* <NewDateModal /> */}
       </div>
     )
   }
