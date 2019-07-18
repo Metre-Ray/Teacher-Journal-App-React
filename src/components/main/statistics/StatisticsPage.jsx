@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-
 import './StatisticsPage.scss';
+
+import BarChart from './BarChart.jsx';
+import { calcAverage } from './../../../helpers/calculations.ts';
 
 export default class StatisticsPage extends Component {
 
@@ -10,6 +12,8 @@ export default class StatisticsPage extends Component {
       listName: 'students'
     }
     this.changeListName = this.changeListName.bind(this);
+    this.createChartDataForStudent = this.createChartDataForStudent.bind(this);
+    this.chartData = [];
   }
 
   changeListName(name) {
@@ -25,7 +29,7 @@ export default class StatisticsPage extends Component {
         <ol>
           {
             students.map((student, i) =>
-              <li tabIndex="0" key={i}>
+              <li tabIndex="0" key={i} onClick={() => this.createChartDataForStudent(student)}>
                 {student.name + ' ' + student.lastName}
               </li>
             )
@@ -47,7 +51,23 @@ export default class StatisticsPage extends Component {
     }
   }
 
+  createChartDataForStudent(item)  {
+    const marks = item.marks;
+    this.chartData = [];
+    for (const subject in marks) {
+      if (marks.hasOwnProperty(subject)) {
+        this.chartData.push({
+          name: subject,
+          x: Math.round(calcAverage(Object.values(marks[subject])) * 100) / 100
+        });
+      }
+    }
+    this.forceUpdate();
+  }
+
   render() {
+    const { students, subjects } = this.props;
+
     return (
       <div className="statistics-page-container">
 
@@ -73,6 +93,7 @@ export default class StatisticsPage extends Component {
             <div>
               <span>Average marks</span>
             </div>
+            <BarChart data={this.chartData} />
           </div>
         </div>
       </div>
