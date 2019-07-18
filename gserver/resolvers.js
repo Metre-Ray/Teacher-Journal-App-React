@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const genId = require('./../src/helpers/generateId.ts');
+const genId = require('./generateId');
 const { GraphQLJSON } = require('graphql-type-json');
 
 const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'assets/data.json')));
@@ -26,7 +26,7 @@ const myResolvers = {
         Name: args.name,
         LastName: args.surname,
         Address: args.address || '',
-        Description: args.Description || '',
+        Description: args.description || '',
         Marks: {}
       }
       students.push(newStudent);
