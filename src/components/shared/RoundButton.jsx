@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './RoundButton.scss';
 
-export default class RoundButton extends Component {
-  render() {
-    return (
-      <button type="button" className="btn btn-primary round-button">
-        {this.props.children}
-      </button>
-    )
-  }
-}
+const RoundButton = (props) => (
+  <button type="button" className="btn btn-primary round-button">
+    {props.children}
+  </button>
+)
+
+export default RoundButton;

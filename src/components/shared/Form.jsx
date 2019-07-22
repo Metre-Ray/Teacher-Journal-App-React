@@ -125,7 +125,7 @@ export default class Form extends Component {
     return (
       <form
         action=""
-        onSubmit={ (event) => handleSubmit(event) }
+        onSubmit={handleSubmit}
         className="my-form">
 
         { this.generateFields(labels) }

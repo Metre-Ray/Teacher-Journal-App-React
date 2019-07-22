@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import './StudentsPage.scss';
@@ -7,30 +7,28 @@ import RoundButton from '../../shared/RoundButton.jsx';
 import StudentTable from './StudentTable.jsx';
 
 
-export default class StudentsPage extends Component {
+const StudentsPage = (props) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      students: props.students,
-      subjects: props.subjects
-    }
-    this.removeStudent = this.removeStudent.bind(this);
+  const [state, setState] = useState({
+    students: props.students,
+    subjects: props.subjects
+  });
+
+  const removeStudent = (index) => {
+    const newStudents = [...state.students];
+    (newStudents.splice(index, 1));
+    setState((prevState) => { return {
+        subjects: prevState.subjects,
+        students: newStudents
+      }
+    });
   }
 
-  removeStudent(index) {
-    let { students } = this.state;
-    (students.splice(index, 1));
-    this.setState((prevState) => {return {subjects: prevState.subjects, students} });
-  }
-
-  render() {
-    const students = this.state.students;
-
+    const students = state.students;
     return (
-      <div className="students-page">
+      <div className="students-page-container">
         <div className="table-container">
-          <StudentTable students={students} onRowRemove={this.removeStudent} />
+          <StudentTable students={students} onRowRemove={removeStudent} />
         </div>
         <div className="buttons-container">
           <Link to="/students/form" tabIndex="-1">
@@ -39,5 +37,6 @@ export default class StudentsPage extends Component {
         </div>
       </div>
     )
-  }
 }
+
+export default StudentsPage;
