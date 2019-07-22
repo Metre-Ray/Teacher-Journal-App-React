@@ -11,7 +11,7 @@ export default class SubjectMarksPage extends Component {
   }
 
   showModal() {
-    this.show = true;
+    this.show = !this.show;
     this.forceUpdate();
   }
 
@@ -31,7 +31,7 @@ export default class SubjectMarksPage extends Component {
         <h2>{subject}</h2>
 
         <div className="top-btn-container">
-          <button className="btn btn-primary btn-add">
+          <button className="btn btn-primary btn-add" onClick={() => this.showModal()}>
             <span>+</span>
           </button>
         </div>
@@ -48,7 +48,7 @@ export default class SubjectMarksPage extends Component {
           </form>
         </div>
 
-        {/* <NewDateModal /> */}
+        <NewDateModal isOpen={this.show} handleClose={() => this.showModal()} handleSubmit={(ev) => this.handleSubmit(ev)} />
       </div>
     )
   }

@@ -1,36 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react';
+import Modal from '../../shared/Modal.jsx';
 
-export default class NewDateModal extends Component {
-  constructor(props) {
+const NewDateModal = (props) => {
+  const { isOpen, handleClose, handleSubmit } = props;
 
-    this.state = {
-      show: props.show
-    }
-  }
+  if (!isOpen) { return null; }
 
-  close() {
-    this.setState({show: false});
-  }
-
-  render() {
-    return (
-      <Modal show={this.state.show}>
-        <label for="date">
-          Enter new date:
-        </label>
-        <input
-          type="date"
-          name="date"
-          class="form-control"/>
-        <div class="btn-container">
-          <button class="btn btn-primary" type="submit">
-            Save
-          </button>
-          <button class="btn btn-primary" onClick={() => this.close()}>
-            Close
-          </button>
-        </div>
-      </Modal>
-    )
-  }
+  return (
+    <Modal>
+      <label htmlFor="date">
+        Enter new date:
+      </label>
+      <input
+        type="date"
+        name="date"
+        className="form-control"/>
+      <div className="btn-container">
+        <button className="btn btn-primary" type="submit" onClick={handleSubmit}>
+          Save
+        </button>
+        <button className="btn btn-primary" onClick={handleClose}>
+          Close
+        </button>
+      </div>
+    </Modal>
+  )
 }
+
+export default NewDateModal;
