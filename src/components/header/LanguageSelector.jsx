@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types';
 
-import './languageSelector.scss';
+import './LanguageSelector.scss';
 
 export default class LanguageSelector extends Component {
 

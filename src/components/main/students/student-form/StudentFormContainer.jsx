@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import StudentForm from './StudentForm.jsx';
 
 import { graphql } from 'react-apollo';
-import { addStudentMutation, dataQuery } from '../../../queries/query.jsx';
+import { addStudentMutation, dataQuery } from '../../../../queries/query.jsx';
 
-class StudentFormContainer extends Component {
-  handleSubmit(event) {
+let StudentFormContainer = (props) => {
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const studentData = {
@@ -14,7 +15,7 @@ class StudentFormContainer extends Component {
       address: form[2].value,
       description: form[3].value
     }
-    const { mutate } = this.props;
+    const { mutate } = props;
     mutate({
       variables: studentData,
       refetchQueries: [ { query: dataQuery }]
@@ -27,13 +28,9 @@ class StudentFormContainer extends Component {
     });
   }
 
-  render() {
-    return (
-      <div>
-        <StudentForm handleSubmit={(e) => this.handleSubmit(e)} />
-      </div>
-    )
-  }
+  return (
+    <StudentForm handleSubmit={handleSubmit} />
+  )
 }
 
 export default StudentFormContainer = graphql(addStudentMutation)(StudentFormContainer);

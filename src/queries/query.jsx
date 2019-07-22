@@ -12,6 +12,18 @@ export const addStudentMutation = gql`
   }
 `;
 
+export const addSubjectMutation = gql`
+  mutation addSubject($name: String!, $teacher: String!, $room: String, $description: String) {
+    addSubject(name: $name, teacher: $teacher, room: $room,  description: $description) {
+      Name
+      Teacher
+      Room
+      Description
+      Id
+    }
+  }
+`;
+
 export const dataQuery = gql`
   query dataQuery {
     students {
