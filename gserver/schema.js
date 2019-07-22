@@ -20,34 +20,35 @@ type Mutation {
 `;
 
 const mytypeDefs = `
-scalar JSON
+  scalar JSON
 
-type Student {
-  Name: String
-  LastName: String
-  Id: ID!
-  Address: String
-  Description: String
-  Marks: JSON
-}
+  type Student {
+    Name: String
+    LastName: String
+    Id: ID!
+    Address: String
+    Description: String
+    Marks: JSON
+  }
 
-type Subject {
-  Name: String
-  Teacher: String
-  Id: ID!
-  Room: String
-  Description: String
-  Dates: [String]
-}
+  type Subject {
+    Name: String
+    Teacher: String
+    Id: ID!
+    Room: String
+    Description: String
+    Dates: [String]
+  }
 
-type Query {
-  students: [Student]    # "[]" means this is a list of channels
-  subjects: [Subject]
-}
+  type Query {
+    students: [Student]    # "[]" means this is a list of channels
+    subjects: [Subject]
+  }
 
-type Mutation {
-  addStudent(name: String!, surname: String!, address: String, description: String): Student
-}
+  type Mutation {
+    addStudent(name: String!, surname: String!, address: String, description: String): Student
+    addSubject(name: String!, teacher: String!, room: String, description: String): Subject
+  }
 `;
 
 const mySchema = makeExecutableSchema({ typeDefs: mytypeDefs, resolvers: myResolvers });

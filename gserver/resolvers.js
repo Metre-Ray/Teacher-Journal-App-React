@@ -20,6 +20,7 @@ const myResolvers = {
   },
 
   Mutation: {
+
     addStudent: (root, args) => {
       const newStudent = {
         Id: genId(),
@@ -32,11 +33,30 @@ const myResolvers = {
       students.push(newStudent);
       fs.writeFile(
         path.resolve(__dirname, 'assets/data1.json'),
-        JSON.stringify({ students, subjects}),
+        JSON.stringify({ students, subjects }),
         (err) => { console.log('Error during writing file! ', err); }
       );
       return newStudent;
+    },
+
+    addSubject: (root, args) => {
+      const newSubject = {
+        Id: genId(),
+        Name: args.name,
+        Teacher: args.teacher,
+        Room: args.room || '',
+        Description: args.description || '',
+        Dates: []
+      }
+      subjects.push(newSubject);
+      fs.writeFile(
+        path.resolve(__dirname, 'assets/data1.json'),
+        JSON.stringify({ students, subjects }),
+        (err) => { console.log('Error during writing file! ', err); }
+      );
+      return newSubject;
     }
+
   }
 }
 
