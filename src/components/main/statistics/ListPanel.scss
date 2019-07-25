@@ -1,0 +1,12 @@
+.panel-container {
+  display: inline-block;
+  width: 30%;
+  min-width: 200px;
+  max-width: 400px;
+  border: 1px dashed rgba(108, 98, 255, 0.514);
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  }
+}

@@ -1,0 +1,16 @@
+.statistics-container__data {
+  width: 90%;
+  padding: 20px 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(108, 98, 255, 0.514);
+
+  span {
+    margin-right: 10px;
+    font-weight: bold;
+    color: rgb(200, 200, 255);
+  }
+
+  div:nth-child(2) {
+    margin-bottom: 30px;
+  }
+}
