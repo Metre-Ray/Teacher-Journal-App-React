@@ -20,7 +20,12 @@ const Main = (props) => {
   let { students, subjects } = props.data;
 
   if (error) {
-    return <p>Error occurred.</p>
+    return (
+      <React.Fragment>
+        <p>Oops, Error occurred.</p>
+        <p>{error.message}</p>
+      </React.Fragment>
+    )
   }
   if (loading) {
     return <p>Page is loading...</p>
